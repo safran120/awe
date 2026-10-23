@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "583295048078",
+    "project_id": "awer-57524",
+    "storage_bucket": "awer-57524.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:583295048078:android:b61b48ab038f698be1acdf",
+        "android_client_info": {
+          "package_name": "com.safranpulse.pulsechat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMVtfX4wlEj6-XlNFhAnmR5XvM5DPMGOY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

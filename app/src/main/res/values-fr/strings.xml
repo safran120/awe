@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PulseChat</string>
+    <string name="login">Se connecter</string>
+    <string name="signup">S\'inscrire</string>
+    <string name="messages">Messages</string>
+    <string name="contacts">Contacts</string>
+    <string name="profile">Profil</string>
+    <string name="send">Envoyer</string>
+    <string name="logout">Déconnexion</string>
+    <string name="call">Appel</string>
+</resources>

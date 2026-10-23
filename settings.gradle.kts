@@ -12,5 +12,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "PingMate"
+rootProject.name = "PulseChat"
 include(":app")
+
