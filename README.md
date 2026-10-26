@@ -12,7 +12,7 @@ Kotlin, Jetpack Compose, Material Design 3, Firebase (Auth, Firestore, Storage, 
 
 ## Features
 - Auth: email/password sign up & login, profile with bio + avatar
-- Chat: real-time Firestore sync, delivery states (sending/sent/delivered/read), typing indicators, pagination, message search
+- Chat: real-time firestore sync, delivery states (sending/sent/delivered/read), typing indicators, pagination, message search
 - Media: image compression (WebP), voice messages
 - Groups: create group chats with name and photo
 - Calls: WebRTC P2P voice calls with offer/answer/ICE signaling
