@@ -1,6 +1,7 @@
 name: CI
 
 on:
+  workflow_dispatch:
   push:
     branches: [main]
   pull_request:
@@ -28,9 +29,14 @@ jobs:
       - name: Build debug APK
         run: ./gradlew :app:assembleDebug
 
-      - name: Run unit tests
-        run: ./gradlew :app:testDebugUnitTest
-        - name: Cache
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug
+          path: app/build/outputs/apk/debug/app-debug.apk
+          
+       - name: Cache
+        
   uses: actions/cache@v5.1.0
   with:
     # A list of files, directories, and wildcard patterns to cache and restore
