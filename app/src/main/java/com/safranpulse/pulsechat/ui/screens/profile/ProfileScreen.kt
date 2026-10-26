@@ -80,7 +80,6 @@ fun ProfileScreen(onLoggedOut: () -> Unit) {
                                     color = MaterialTheme.colorScheme.onPrimaryContainer
                                 )
                             }
-                        }
 
                         OutlinedButton(
                             onClick = { picker.launch("image/*") },

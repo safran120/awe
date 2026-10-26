@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.lifecycle.lifecycleScope
+import androidx.compose.runtime.LaunchedEffect
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.NavDeepLinkBuilder
 import com.safranpulse.pulsechat.data.UserRepository
@@ -65,4 +66,3 @@ class MainActivity : ComponentActivity() {
         lifecycleScope.launch { userRepository.setPresence("Offline") }
     }
 }
-

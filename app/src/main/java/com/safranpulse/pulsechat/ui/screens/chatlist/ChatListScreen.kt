@@ -1,6 +1,7 @@
 package com.safranpulse.pulsechat.ui.screens.chatlist
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.gestures.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*

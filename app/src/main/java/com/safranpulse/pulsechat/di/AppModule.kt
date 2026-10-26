@@ -6,6 +6,7 @@ import com.safranpulse.pulsechat.data.ChatRepository
 import com.safranpulse.pulsechat.data.UserRepository
 import com.safranpulse.pulsechat.data.local.AppDatabase
 import com.safranpulse.pulsechat.data.local.MessageDao
+import com.safranpulse.pulsechat.util.Clock
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,18 +19,22 @@ import javax.inject.Singleton
 object AppModule {
     @Provides
     @Singleton
-    fun provideUserRepository(): UserRepository = UserRepository()
+    fun provideUserRepository(clock: Clock): UserRepository =
+        UserRepository(clock)
 
     @Provides
     @Singleton
     fun provideChatRepository(
         @ApplicationContext context: Context,
-        messageDao: MessageDao
-    ): ChatRepository = ChatRepository(context, messageDao)
+        messageDao: MessageDao,
+        clock: Clock
+    ): ChatRepository =
+        ChatRepository(context, messageDao, clock)
 
     @Provides
     @Singleton
-    fun provideCallRepository(): CallRepository = CallRepository()
+    fun provideCallRepository(): CallRepository =
+        CallRepository()
 
     @Provides
     @Singleton

@@ -6,54 +6,6 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-
-val Typography = androidx.compose.material3.Typography(
-    headlineLarge = androidx.compose.material3.TextStyle(
-        fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
-        fontSize = 32.sp,
-        lineHeight = 40.sp,
-        letterSpacing = (-0.25).sp
-    ),
-    headlineMedium = androidx.compose.material3.TextStyle(
-        fontWeight = androidx.compose.ui.text.font.FontWeight.Bold,
-        fontSize = 28.sp,
-        lineHeight = 36.sp
-    ),
-    titleLarge = androidx.compose.material3.TextStyle(
-        fontWeight = androidx.compose.ui.text.font.FontWeight.Medium,
-        fontSize = 18.sp,
-        lineHeight = 28.sp
-    ),
-    titleMedium = androidx.compose.material3.TextStyle(
-        fontWeight = androidx.compose.ui.text.font.FontWeight.Medium,
-        fontSize = 16.sp,
-        lineHeight = 24.sp
-    ),
-    bodyLarge = androidx.compose.material3.TextStyle(
-        fontWeight = androidx.compose.ui.text.font.FontWeight.Normal,
-        fontSize = 16.sp,
-        lineHeight = 24.sp
-    ),
-    bodyMedium = androidx.compose.material3.TextStyle(
-        fontWeight = androidx.compose.ui.text.font.FontWeight.Normal,
-        fontSize = 14.sp,
-        lineHeight = 20.sp
-    ),
-    labelLarge = androidx.compose.material3.TextStyle(
-        fontWeight = androidx.compose.ui.text.font.FontWeight.Medium,
-        fontSize = 14.sp,
-        lineHeight = 20.sp,
-        letterSpacing = 0.1.sp
-    ),
-    labelMedium = androidx.compose.material3.TextStyle(
-        fontWeight = androidx.compose.ui.text.font.FontWeight.Normal,
-        fontSize = 12.sp,
-        lineHeight = 16.sp,
-        letterSpacing = 0.5.sp
-    )
-)
 
 private val LightColorScheme = lightColorScheme(
     primary = BrandIndigo,
@@ -119,14 +71,6 @@ private val DarkColorScheme = darkColorScheme(
     surfaceContainer = SurfaceRaised,
     surfaceContainerHigh = Color(0xFF475569),
     surfaceContainerHighest = Color(0xFF64748B)
-)
-
-val Shapes = androidx.compose.material3.Shapes(
-    extraSmall = androidx.compose.foundation.shape.RoundedCornerShape(4.dp),
-    small = androidx.compose.foundation.shape.RoundedCornerShape(8.dp),
-    medium = androidx.compose.foundation.shape.RoundedCornerShape(12.dp),
-    large = androidx.compose.foundation.shape.RoundedCornerShape(16.dp),
-    extraLarge = androidx.compose.foundation.shape.RoundedCornerShape(24.dp)
 )
 
 @Composable

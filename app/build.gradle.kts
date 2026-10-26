@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.compose")
     id("com.google.dagger.hilt.android")
     id("kotlin-kapt")
     id("com.google.gms.google-services")
@@ -19,7 +20,7 @@ android {
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
-            useSafeHarms = false
+            useSupportLibrary = true
         }
     }
 
@@ -29,7 +30,12 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
         debug {
-            applicationIdSuffix = ".debug"
+            // NOTE: no applicationIdSuffix here. The Firebase project ("awer-57524") only has an
+            // Android app registered for "com.safranpulse.pulsechat", and the google-services
+            // plugin fails the build when the applicationId of the variant is not registered:
+            //   "No matching client found for package name '<applicationId>'"
+            // Register a second Android app in Firebase + re-download google-services.json
+            // before re-adding applicationIdSuffix = ".debug".
         }
     }
     compileOptions {
@@ -41,9 +47,6 @@ android {
     }
     buildFeatures {
         compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.10"
     }
 }
 
@@ -57,10 +60,12 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview:1.5.10")
     implementation("androidx.compose.material3:material3:1.2.0")
     implementation("androidx.navigation:navigation-compose:2.7.7")
+    implementation("androidx.compose.foundation:foundation:1.5.10")
+    implementation("androidx.compose.foundation:foundation-layout:1.5.10")
     
     // Dependency Injection
-    implementation("com.google.dagger:hilt-android:2.48")
-    kapt("com.google.dagger:hilt-android-compiler:2.48")
+    implementation("com.google.dagger:hilt-android:2.51.1")
+    kapt("com.google.dagger:hilt-android-compiler:2.51.1")
     implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
 
@@ -78,21 +83,19 @@ dependencies {
     kapt("androidx.room:room-compiler:2.6.1")
 
     // Image Loading
-    implementation("io.coil-kt:coil-compose:1.6.4")
+    implementation("io.coil-kt:coil-compose:2.7.0")
 
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
-    // WebRTC
-    implementation("org.webrtc:google-webrtc:1.0.32006")
+    // WebRTC (maintained drop-in for org.webrtc, published on Maven Central)
+    implementation("io.github.webrtc-sdk:android:150.7871.01")
     // Compose Animation
     implementation("androidx.compose.animation:animation:1.5.10")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation("androidx.test.ext:rules:1.5.0")
     debugImplementation("androidx.compose.ui:ui-test-manifest:1.5.10")
 }
-

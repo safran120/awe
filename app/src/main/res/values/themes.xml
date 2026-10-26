@@ -1,6 +1,14 @@
 <resources>
-    <style name="Theme.PulseChat" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/primary_blue</item>
+    <!--
+      This is a Compose-only app: the Material 3 styling comes from
+      androidx.compose.material3 (see PulseChatTheme), so the window theme only has
+      to provide a launch/background theme. Using a platform theme here avoids
+      pulling in the whole com.google.android.material (Views/AppCompat) runtime.
+      The night variant lives in values-night/themes.xml.
+    -->
+    <style name="Theme.PulseChat" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:colorPrimary">@color/primary_blue</item>
+        <item name="android:statusBarColor">@color/primary_blue</item>
+        <item name="android:windowBackground">@color/neutral_100</item>
     </style>
 </resources>
-
