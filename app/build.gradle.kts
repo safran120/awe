@@ -28,7 +28,6 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
     }
 
     signingConfigs {
@@ -56,10 +55,7 @@ android {
         debug {
             // NOTE: no applicationIdSuffix here. The Firebase project ("awer-57524") only has an
             // Android app registered for "com.safranpulse.pulsechat", and the google-services
-            // plugin fails the build when the applicationId of the variant is not registered:
-            //   "No matching client found for package name '<applicationId>'"
-            // Register a second Android app in Firebase + re-download google-services.json
-            // before re-adding applicationIdSuffix = ".debug".
+            // plugin fails the build when the applicationId of the variant is not registered.
         }
     }
     compileOptions {
@@ -78,14 +74,13 @@ dependencies {
     // Use the Compose BOM
     implementation(platform("androidx.compose:compose-bom:2024.04.01"))
     
-    // Then list your Compose dependencies WITHOUT version numbers:
+    // Compose dependencies WITHOUT version numbers
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.compose.foundation:foundation")
     implementation("androidx.compose.foundation:foundation-layout")
     implementation("androidx.compose.material3:material3")
-}
 
     // Dependency Injection
     implementation("com.google.dagger:hilt-android:2.51.1")
@@ -113,13 +108,15 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
-    // WebRTC (maintained drop-in for org.webrtc, published on Maven Central)
+    
+    // WebRTC
     implementation("io.github.webrtc-sdk:android:150.7871.01")
+    
     // Compose Animation
     implementation("androidx.compose.animation:animation:1.5.10")
 
+    // Testing
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.5.10")
 }
