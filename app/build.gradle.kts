@@ -28,9 +28,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
+
     }
 
     signingConfigs {
@@ -50,7 +48,10 @@ android {
             if (keystorePropertiesFile.exists()) {
                 signingConfig = signingConfigs.getByName("release")
             }
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
         debug {
             // NOTE: no applicationIdSuffix here. The Firebase project ("awer-57524") only has an
@@ -77,14 +78,14 @@ dependencies {
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
     implementation("androidx.activity:activity-compose:1.8.2")
-    implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.9.22"))
-    implementation("androidx.compose.ui:ui:1.5.10")
-    implementation("androidx.compose.ui:ui-graphics:1.5.10")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.5.10")
-    implementation("androidx.compose.material3:material3:1.2.0")
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom:2.0.21"))
+    implementation("androidx.compose.ui:ui:1.6.10")
+    implementation("androidx.compose.ui:ui-graphics:1.6.10")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.6.10")
+    implementation("androidx.compose.material3:material3:1.2.1")
     implementation("androidx.navigation:navigation-compose:2.7.7")
-    implementation("androidx.compose.foundation:foundation:1.5.10")
-    implementation("androidx.compose.foundation:foundation-layout:1.5.10")
+    implementation("androidx.compose.foundation:foundation:1.6.10")
+    implementation("androidx.compose.foundation:foundation-layout:1.6.10")
 
     // Dependency Injection
     implementation("com.google.dagger:hilt-android:2.51.1")

@@ -1,12 +1,15 @@
 package com.safranpulse.pulsechat.ui.components
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.clickable
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.foundation.text.Text
+import androidx.compose.ui.text.font.FontWeight
 
 @Composable
 fun PingAvatar(
@@ -14,8 +17,8 @@ fun PingAvatar(
     contentDescription: String? = null
 ) {
     // Simple circle avatar
-    androidx.compose.foundation.layout.Box(
-        modifier = androidx.compose.foundation.layout.Modifier
+    Box(
+        modifier = Modifier
             .size(size)
             .background(Color.LightGray)
     )
@@ -26,7 +29,7 @@ fun PingCard(
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit
 ) {
-    androidx.compose.foundation.layout.Box(
+    Box(
         modifier = modifier
             .background(Color.White)
             .border(width = 1.dp, color = Color.Gray)
@@ -42,7 +45,7 @@ fun PingElevatedCard(
     modifier: Modifier = Modifier,
     content: @Composable () -> Unit
 ) {
-    androidx.compose.foundation.layout.Box(
+    Box(
         modifier = modifier
             .background(Color(0xFFF5F5F5)) // Very light gray
             .border(width = 1.dp, color = Color.Gray)
@@ -62,7 +65,7 @@ fun PingButton(
 ) {
     val buttonColor = if (enabled) Color(0xFF6200EE) else Color.Gray
     val contentColor = if (enabled) Color.White else Color.Gray
-    androidx.compose.foundation.layout.Box(
+    Box(
         modifier = modifier
             .background(buttonColor)
             .clickable { if (enabled) onClick() }
@@ -88,7 +91,7 @@ fun PingOutlinedButton(
 ) {
     val borderColor = if (enabled) Color(0xFF6200EE) else Color.Gray
     val contentColor = if (enabled) Color(0xFF6200EE) else Color.Gray
-    androidx.compose.foundation.layout.Box(
+    Box(
         modifier = modifier
             .border(width = 1.dp, color = borderColor)
             .background(Color.Transparent)
@@ -119,11 +122,11 @@ fun PingTextField(
     maxLines: Int = 1
 ) {
     // Very simple text field that just displays the value
-    androidx.compose.foundation.layout.Column(modifier = modifier) {
+    Column(modifier = modifier) {
         if (label != null) {
             androidx.compose.foundation.text.Text(text = label)
         }
-        androidx.compose.foundation.layout.Row(
+        Row(
             modifier = modifier
                 .background(Color.White)
                 .border(width = 1.dp, color = if (isError) Color.Red else Color.Gray)
@@ -132,7 +135,7 @@ fun PingTextField(
         ) {
             if (leadingIcon != null) {
                 leadingIcon()
-                androidx.compose.foundation.layout.Space(modifier = Modifier.width(4.dp))
+                Space(modifier = Modifier.width(4.dp))
             }
             androidx.compose.foundation.text.Text(
                 text = value,
@@ -156,7 +159,7 @@ fun PingDivider(
     thickness: dp = 1.dp,
     color: Color = Color.Gray
 ) {
-    androidx.compose.foundation.layout.Box(
+    Box(
         modifier = modifier
             .height(thickness)
             .background(color)
@@ -187,7 +190,7 @@ fun PingListItem(
     trailing: @Composable (() -> Unit)? = null,
     enabled: Boolean = true
 ) {
-    androidx.compose.foundation.layout.Row(
+    Row(
         modifier = modifier
             .fillMaxWidth()
             .clickable { 
@@ -198,7 +201,7 @@ fun PingListItem(
             .padding(16.dp)
     ) {
         leading?.invoke()
-        androidx.compose.foundation.layout.Column(
+        Column(
             modifier = Modifier.weight(1f)
         ) {
             headline?.invoke()
